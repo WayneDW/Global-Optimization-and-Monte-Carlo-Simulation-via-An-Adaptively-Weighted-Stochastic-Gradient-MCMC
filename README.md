@@ -95,3 +95,4 @@ Test (10) Ackley function
 >> python3 ./main.py -fnum 10 -lr 0.01 -T 0.05 -error .4 -check 1 -method   sgld -div 0.04 -part 100 -zeta 0.2
 ```
 
+### Mode explorations on MNIST dataset
