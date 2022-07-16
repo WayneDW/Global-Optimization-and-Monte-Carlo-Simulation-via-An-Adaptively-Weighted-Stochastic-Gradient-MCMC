@@ -9,21 +9,21 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 
 
 
-The adaptively weighted Langevin dynamics can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to).
+The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to).
 
 
-| Index | Dimension | Function name  | Link |
+| Index | Dimension | Function name | Dimension  | Link |
 | ------------- | ------------- | ------------- | ------------- |
-|1 | 20 | Rastrigin  | [link](https://en.wikipedia.org/wiki/Rastrigin_function)  |
-|2 | 20 | Griewank  | [link](https://www.sfu.ca/~ssurjano/griewank.html)  |
-|3 | 20 | Sum Squares | [link](https://en.wikipedia.org/wiki/Sum_of_squares_function) |
-|4 | 20 | Rosenbrock  | [link](https://en.wikipedia.org/wiki/Rosenbrock_function)  |
-|5 | 20 | Zakharov  | [link](https://www.sfu.ca/~ssurjano/zakharov.html)  |
-|6 | 24 | Powell | [link](https://www.sfu.ca/~ssurjano/powell.html) |
-|7 | 25 | Dixon & Price | [link](https://www.sfu.ca/~ssurjano/dixonpr.html)  |
-|8 | 30 | Levy | [link](https://www.sfu.ca/~ssurjano/levy.html) |
-|9 | 30 | Sphere | [link](https://www.sfu.ca/~ssurjano/spheref.html) |
-|10 | 30 | Ackley | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
+|1 | Rastrigin | 20  | [link](https://en.wikipedia.org/wiki/Rastrigin_function)  |
+|2 | Griewank  | 20  | [link](https://www.sfu.ca/~ssurjano/griewank.html)  |
+|3 | Sum Squares | 20 | [link](https://en.wikipedia.org/wiki/Sum_of_squares_function) |
+|4 | Rosenbrock  | 20 |[link](https://en.wikipedia.org/wiki/Rosenbrock_function)  |
+|5 | Zakharov  | 20   |[link](https://www.sfu.ca/~ssurjano/zakharov.html)  |
+|6 | Powell | 24 | [link](https://www.sfu.ca/~ssurjano/powell.html) |
+|7 | Dixon & Price | 25 | [link](https://www.sfu.ca/~ssurjano/dixonpr.html)  |
+|8 | Levy | 30 | [link](https://www.sfu.ca/~ssurjano/levy.html) |
+|9 | Sphere | 30 | [link](https://www.sfu.ca/~ssurjano/spheref.html) |
+|10  Ackley | 30 | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
 
 
 ### How to run the algorithms
@@ -38,4 +38,4 @@ Run SGLD
 >> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
 ```
 
-The rest of the hyperparameters can be seen in hyperparameter_part10 and hyperparameter_part100 files, where partN denotes AWSGLD with N partitions.
+The hyperparameters are detailed hyperparameter_part${N} files, where N denotes the number of (10 or 100) partitions.
