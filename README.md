@@ -31,14 +31,66 @@ The adaptively weighted scheme can outperform the vanilla alternative by almost 
 
 #### How to run the algorithms
 
-Run AWSGLD
-```
+Test (1) Rastrigin function
+```python
 >> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method awsgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
+>> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method   sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
 ```
 
-Run SGLD
-```
->> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
+Test (2) Griewank function
+```python
+>> python3 ./main.py -fnum 2 -lr 0.1  -T 10 -error 25 -method awsgld -div 5 -part 100 -zeta 10
+>> python3 ./main.py -fnum 2 -lr 0.1  -T 10 -error 25 -method   sgld -div 5 -part 100 -zeta 10
 ```
 
-Hyperparameters are detailed hyperparameter_part${N} files, where N= denotes the number of (10 or 100) partitions.
+
+Test (3) Sum Squares function
+```python
+>> python3 ./main.py -fnum 3 -lr 0.01 -T 0.01 -error 1.5 -method awsgld -div 1 -part 100 -zeta 1
+>> python3 ./main.py -fnum 3 -lr 0.01 -T 0.01 -error 1.5 -method   sgld -div 1 -part 100 -zeta 1
+```
+
+
+Test (4) Rosenbrock function
+```python
+>> python3 ./main.py -fnum 4 -lr 1e-5 -T 10 -error 20 -method awsgld -div 3 -part 100 -zeta 10
+>> python3 ./main.py -fnum 4 -lr 1e-5 -T 10 -error 20 -method   sgld -div 3 -part 100 -zeta 10
+```
+
+
+Test (5) Zakharov function
+```python
+>> python3 ./main.py -fnum 5 -lr 1e-9 -T 10000 -error 500 -method awsgld -div 50 -part 100 -zeta 0.5
+>> python3 ./main.py -fnum 5 -lr 1e-9 -T 10000 -error 500 -method   sgld -div 50 -part 100 -zeta 0.5
+```
+
+Test (6) Powell function
+```python
+>> python3 ./main.py -fnum 6 -lr 1e-4 -T 1 -error 1 -method awsgld -div 2 -part 100 -zeta 200
+>> python3 ./main.py -fnum 6 -lr 1e-4 -T 1 -error 1 -method   sgld -div 2 -part 100 -zeta 200
+```
+
+Test (7) Dixon & Price function
+```python
+>> python3 ./main.py -fnum 7 -lr 1e-5 -T 10 -error 10 -method awsgld -div 2 -part 100 -zeta 20
+>> python3 ./main.py -fnum 7 -lr 1e-5 -T 10 -error 10 -method   sgld -div 2 -part 100 -zeta 20
+```
+
+Test (8) Levy function
+```python
+>> python3 ./main.py -fnum 8 -lr 1e-4 -T 100 -error 400 -method awsgld -div 60 -part 100 -zeta 10
+>> python3 ./main.py -fnum 8 -lr 1e-4 -T 100 -error 400 -method   sgld -div 60 -part 100 -zeta 10
+```
+
+Test (9) Sphere function
+```python
+>> python3 ./main.py -fnum 9 -lr 1e-2 -T 1e-4 -method awsgld -div 2 -part 100 -zeta 1
+>> python3 ./main.py -fnum 9 -lr 1e-2 -T 1e-4 -method   sgld -div 2 -part 100 -zeta 1
+```
+
+Test (10) Ackley function
+```python
+>> python3 ./main.py -fnum 10 -lr 0.01 -T 0.05 -error .4 -check 1 -method awsgld -div 0.04 -part 100 -zeta 0.2
+>> python3 ./main.py -fnum 10 -lr 0.01 -T 0.05 -error .4 -check 1 -method   sgld -div 0.04 -part 100 -zeta 0.2
+```
+

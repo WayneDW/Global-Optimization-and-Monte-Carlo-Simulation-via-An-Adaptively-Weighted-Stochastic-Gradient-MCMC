@@ -24,16 +24,14 @@ class Sampler:
         self.Fclass = Fclass
         self.dim = len(self.xmin[self.fname])
         self.lr = pars.lr
-        self.invT = pars.invT
+        self.T = pars.T
         self.boundary = self.domain[self.fname]
         self.xinit = np.array(list(map(lambda x: uniform(self.boundary[0], self.boundary[1]), range(self.dim))))
         self.max_iters = int(pars.max_iters)
-        self.stochastic_noise_scale = pars.noise_scale
         self.error = pars.error
         self.zeta = pars.zeta
         self.div = pars.div
         self.check = pars.check
-        self.decay_min = pars.decay_min
         self.decay_lr = pars.decay_lr
         self.total_parts = pars.part
 
@@ -57,7 +55,7 @@ class Sampler:
 
     def record(self, method, time_used, iters, finit, freal, fcalc):
         print('%s,%s, time %.1f'%(self.fname, method, time_used))
-        print('%s,%s, temperature %.2f'%(self.fname, method, 1./self.invT))
+        print('%s,%s, temperature %.2f'%(self.fname, method, self.T))
         print('%s,%s, partition number %d'%(self.fname, method, self.total_parts))
         print('%s,%s, iter %d'%(self.fname, method, iters))
         print('%s,%s, init_f %.3f'%(self.fname, method, finit))
@@ -91,10 +89,8 @@ class Sampler:
         time_cnt = time()
         init_f = self.eval_f(beta)
         f_cur_min = init_f
-        grad_scale, noise_scale = 0, 0
-        #bar = Bar('Processing', max=self.max_iters/100)
         for iters in range(1, int(self.max_iters+1)):
-            proposal = beta - self.lr * self.stochastic_grad(beta) + sqrt(2 * self.lr / self.invT) * normal(size=self.dim)
+            proposal = beta - self.lr * self.stochastic_grad(beta) + sqrt(2 * self.lr * self.T) * normal(size=self.dim)
             if self.in_domain(proposal) and self.check:
                 beta = proposal
             if self.check == 0:
@@ -125,12 +121,11 @@ class Sampler:
         time_cnt = time()
         init_f = self.eval_f(beta)
         f_cur_min = init_f
-        grad_scale, noise_scale = 0, 0
         self.set_adaptive()
         for iters in range(1, int(self.max_iters+1)):
-            grad_mul = 1 + self.zeta / self.invT * (np.log(self.Gcum[self.J]) - np.log(self.Gcum[self.J-1])) / self.div
-            proposal = beta - self.lr * grad_mul * self.stochastic_grad(beta) + sqrt(2. * self.lr / self.invT) * normal(size=self.dim)
-            decay = min(self.decay_min, self.decay_lr / (iters**0.75 + 1000.))
+            grad_mul = 1 + self.zeta * self.T * (np.log(self.Gcum[self.J]) - np.log(self.Gcum[self.J-1])) / self.div
+            proposal = beta - self.lr * grad_mul * self.stochastic_grad(beta) + sqrt(2. * self.lr * self.T) * normal(size=self.dim)
+            decay = min(1.0, self.decay_lr / (iters**0.75 + 1000.))
             if self.in_domain(proposal) and self.check:
                 beta = proposal
             if self.check == 0:
@@ -140,7 +135,7 @@ class Sampler:
             self.Gcum[:self.J] = self.Gcum[:self.J] + decay * (self.Gcum[self.J] * (-self.Gcum[:self.J]))
             if iters % 3e3 == 0 or iters == 1000:
                 print('\nDelta h ' +  str(self.div)[:4])
-                grad_muls = 1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div / self.invT
+                grad_muls = 1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div * self.T
                 print('\nGrad multiplier max ' + str(np.max(grad_muls))[:4])
                 print(grad_muls)
                 print('\n CDF in energy')
@@ -173,8 +168,8 @@ class Sampler:
                     print(suffix)
                 break
         print('\nGrad multiplier')
-        print(1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div / self.invT)
+        print(1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div * self.T)
         print('Max multiplier')
-        print(max(1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div / self.invT))
+        print(max(1 + (np.log(self.Gcum[1:]) - np.log(self.Gcum[:-1])) * self.zeta / self.div * self.T))
         time_used = time() - time_cnt
         self.record('AWSGLD', time_used, iters, init_f, self.fmin[self.fname], f_cur_min)
