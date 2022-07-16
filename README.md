@@ -24,3 +24,16 @@ The adaptively weighted Langevin dynamics can outperform the vanilla alternative
 |8 | 30 | Levy | [link](https://www.sfu.ca/~ssurjano/levy.html) |
 |9 | 30 | Sphere | [link](https://www.sfu.ca/~ssurjano/spheref.html) |
 |10 | 30 | Ackley | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
+
+
+### How to run the algorithms
+
+Run AWSGLD
+```
+>> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method awsgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
+```
+
+Run SGLD
+```
+>> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
+```
