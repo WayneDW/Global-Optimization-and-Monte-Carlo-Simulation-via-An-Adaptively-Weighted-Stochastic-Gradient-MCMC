@@ -8,8 +8,6 @@ from autograd.numpy.random import normal, uniform
 
 from time import time
 
-# Credit to Zhunzhong07
-#from utils import Bar
 
 class Sampler:
     def __init__(self, Fclass, pars):
