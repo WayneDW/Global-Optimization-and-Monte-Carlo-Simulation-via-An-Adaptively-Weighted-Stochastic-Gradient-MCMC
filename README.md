@@ -12,7 +12,7 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to).
 
 
-| Index | Dimension | Function name | Dimension  | Link |
+| Index | Function name | Dimension  | Link |
 | ------------- | ------------- | ------------- | ------------- |
 |1 | Rastrigin | 20  | [link](https://en.wikipedia.org/wiki/Rastrigin_function)  |
 |2 | Griewank  | 20  | [link](https://www.sfu.ca/~ssurjano/griewank.html)  |
