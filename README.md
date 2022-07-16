@@ -37,3 +37,5 @@ Run SGLD
 ```
 >> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
 ```
+
+The rest of the hyperparameters can be seen in hyperparameter_part10 and hyperparameter_part100 files, where partN denotes AWSGLD with N partitions.
