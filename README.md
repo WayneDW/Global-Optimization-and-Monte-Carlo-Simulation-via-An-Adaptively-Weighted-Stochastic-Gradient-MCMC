@@ -5,7 +5,8 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 
 ### Requirement
 * Python 3.x
-* numpy
+* autograd
+* autograd.numpy
 
 ### Global optimization on 10 non-convex functions
 
