@@ -36,8 +36,6 @@ class Sampler:
         self.decay_min = pars.decay_min
         self.decay_lr = pars.decay_lr
         self.total_parts = pars.part
-        # start to calc partion from (f_init - f_min) * loss_thres + f_min
-        self.loss_thres = pars.loss_thres
 
     def in_domain(self, beta): return sum(map(lambda i: beta[i] < self.boundary[0] or beta[i] > self.boundary[1], range(self.dim))) == 0
 

@@ -29,7 +29,7 @@ The adaptively weighted scheme can outperform the vanilla alternative by almost 
 |10 | Ackley | 30 | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
 
 
-### How to run the algorithms
+#### How to run the algorithms
 
 Run AWSGLD
 ```
@@ -41,4 +41,4 @@ Run SGLD
 >> python3 ./main.py -fnum 1 -lr 5e-4 -T 5 -error 75 -check 1 -method sgld -div 3 -part 100 -zeta 0.02 -decay_lr 200
 ```
 
-The hyperparameters are detailed hyperparameter_part${N} files, where N denotes the number of (10 or 100) partitions.
+Hyperparameters are detailed hyperparameter_part${N} files, where N= denotes the number of (10 or 100) partitions.
