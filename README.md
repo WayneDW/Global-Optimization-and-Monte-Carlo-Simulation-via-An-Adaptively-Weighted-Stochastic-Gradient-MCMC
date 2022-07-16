@@ -8,23 +8,19 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 * numpy
 
 
-We give a simple demo to show how adaptively weighted Langevin dynamics can outperform the vanilla alternative by hundreds of times.
 
-The functions are tested through classical functions of dimensions 20 to 30.
+The adaptively weighted Langevin dynamics can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to).
 
-The function list is given as follows
 
-Rosenbrock [link](https://en.wikipedia.org/wiki/Rosenbrock_function), Griewank, and Ackley functions.
-
-| Function index | Function name  | Link |
-| ------------- | ------------- | ------------- |
-|1| Rastrigin  | Content Cell  |
-|2| Griewank  | Content Cell  |
-|3| Sum Squares | |
-|4| Rosenbrock  | [link](https://en.wikipedia.org/wiki/Rosenbrock_function)  |
-|5| Zakharov  | Content Cell  |
-|6| Powell | |
-|7| Dixon & Price | |
-|8| Levy | |
-|9| Sphere | |
-|10| Ackley | |
+| Index | Dimension | Function name  | Link |
+| ------------- | ------------- | ------------- | ------------- |
+|1 | 20 | Rastrigin  | [link](https://en.wikipedia.org/wiki/Rastrigin_function)  |
+|2 | 20 | Griewank  | [link](https://www.sfu.ca/~ssurjano/griewank.html)  |
+|3 | 20 | Sum Squares | [link](https://en.wikipedia.org/wiki/Sum_of_squares_function) |
+|4 | 20 | Rosenbrock  | [link](https://en.wikipedia.org/wiki/Rosenbrock_function)  |
+|5 | 20 | Zakharov  | [link](https://www.sfu.ca/~ssurjano/zakharov.html)  |
+|6 | 24 | Powell | [link](https://www.sfu.ca/~ssurjano/powell.html) |
+|7 | 25 | Dixon & Price | [link](https://www.sfu.ca/~ssurjano/dixonpr.html)  |
+|8 | 30 | Levy | [link](https://www.sfu.ca/~ssurjano/levy.html) |
+|9 | 30 | Sphere | [link](https://www.sfu.ca/~ssurjano/spheref.html) |
+|10 | 30 | Ackley | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
