@@ -7,9 +7,12 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 * Python 3.x
 * numpy
 
+### Global optimization on 10 non-convex functions
 
+The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to) and is much better the existing baselines.
 
-The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to).
+<img src="/images/multil-mode_exploration.png" width="800">
+
 
 
 | Index | Function name | Dimension  | Link |
@@ -23,7 +26,7 @@ The adaptively weighted scheme can outperform the vanilla alternative by almost 
 |7 | Dixon & Price | 25 | [link](https://www.sfu.ca/~ssurjano/dixonpr.html)  |
 |8 | Levy | 30 | [link](https://www.sfu.ca/~ssurjano/levy.html) |
 |9 | Sphere | 30 | [link](https://www.sfu.ca/~ssurjano/spheref.html) |
-|10  Ackley | 30 | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
+|10 | Ackley | 30 | [link](https://www.sfu.ca/~ssurjano/ackley.html) |
 
 
 ### How to run the algorithms
