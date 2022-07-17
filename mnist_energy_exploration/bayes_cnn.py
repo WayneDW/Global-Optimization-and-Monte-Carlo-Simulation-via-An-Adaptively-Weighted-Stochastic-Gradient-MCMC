@@ -48,7 +48,7 @@ def main():
     parser.add_argument('-stepsize', default=0.01, type=float, help='stepsize for stochastic approximation')
     parser.add_argument('-part', default=1000000, type=int, help='The number of partitions')
     parser.add_argument('-div', default=10, type=float, help='Divide energy: divisor to calculate partition index')
-    parser.add_argument('-zeta', default=1e5, type=float, help='Adaptive amplifier')
+    parser.add_argument('-zeta', default=0, type=float, help='Adaptive amplifier')
     parser.add_argument('-T', default=1.0, type=float, help='Tempreture')
 
     # other settings
