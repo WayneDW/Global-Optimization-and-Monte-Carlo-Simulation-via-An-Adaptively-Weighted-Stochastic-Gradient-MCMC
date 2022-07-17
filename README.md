@@ -6,10 +6,6 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 
 The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to) and is much better the existing baselines.
 
-<img src="/images/multil-mode_exploration.png" width="800">
-
-
-
 | Index | Function name | Dimension  | Link |
 | ------------- | ------------- | ------------- | ------------- |
 |1 | Rastrigin | 20  | [link](https://en.wikipedia.org/wiki/Rastrigin_function)  |
@@ -26,5 +22,3 @@ The adaptively weighted scheme can outperform the vanilla alternative by almost 
 ### Mode explorations on MNIST dataset
 
 Although MNIST has been talked about a billion times, the MCMC algorithms cannot achieve free exploration / fluctuating losses using a fixed learning rate. Luckily, such a tragedy has been solved through this code.
-
-<img src="/images/mnist_mode_exploration.png" width="800">
