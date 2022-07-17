@@ -12,7 +12,7 @@ Code for "An adaptively weighted stochastic gradient MCMC algorithm for Monte Ca
 
 The adaptively weighted scheme can outperform the vanilla alternative by almost hundreds of times in the following cases (but not limited to) and is much better the existing baselines.
 
-<img src="/images/multil-mode_exploration.png" width="800">
+<img src="/global_optimization_of_functions/images/multil-mode_exploration.png" width="800">
 
 
 
