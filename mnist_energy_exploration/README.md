@@ -7,7 +7,7 @@
 
 Although MNIST has been talked about a billion times, the MCMC algorithms cannot achieve free exploration / fluctuating losses using a fixed learning rate. Luckily, such a tragedy has been solved through this code.
 
-<img src="mnist_energy_exploration/images/mnist_mode_exploration.png" width="800">
+<img src="/mnist_energy_exploration/images/mnist_mode_exploration.png" width="800">
 
 AWSGHMC
 ```python
