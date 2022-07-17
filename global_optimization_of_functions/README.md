@@ -95,9 +95,3 @@ Test (10) Ackley function
 >> python3 ./main.py -fnum 10 -lr 0.01 -T 0.05 -error .4 -check 1 -method   sgld -div 0.04 -part 100 -zeta 0.2
 ```
 
-### Mode explorations on MNIST dataset
-
-Although MNIST has been talked about a billion times, the MCMC algorithms cannot achieve free exploration / fluctuating losses using a fixed learning rate. Luckily, such a tragedy has been solved through this code.
-
-<img src="/images/mnist_mode_exploration.png" width="800">
-
